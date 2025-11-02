@@ -1,0 +1,48 @@
+%! Author = byteme
+
+%! ------------------------------------------------------------------------------
+%! Preamble and Configuration
+%! ------------------------------------------------------------------------------
+\documentclass[a4paper, 12pt]{scrlttr2}
+\input{preamble.tex}
+
+%! ------------------------------------------------------------------------------
+%! Your information and letter date
+%! ------------------------------------------------------------------------------
+\setkomavar{fromname}{NAME}                           %! Your name
+\setkomavar{fromaddress}{ADDRESS}                     %! Your address
+\setkomavar*{fromphone}{PHONE NUMBER}                 %! Your phone number
+\setkomavar*{fromemail}{EMAIL}                        %! Your email address
+\setkomavar{date}{CITY, \today}                       %! Todays date
+\setkomavar{subject}{SUBJECT}                         %! Subject
+\setkomavar{signature}{NAME}                          %! Your signature
+
+%! ------------------------------------------------------------------------------
+\begin{document}
+
+%! ------------------------------------------------------------------------------
+%! Addressee
+%! ------------------------------------------------------------------------------
+\begin{letter}{FIRST LASTNAME\\STREET NR\\ZIP LOCATION}
+
+%! ------------------------------------------------------------------------------
+%! Letter content
+%! ------------------------------------------------------------------------------
+\opening{OPENING}
+
+Paragraph 1
+
+Paragraph 2
+
+Paragraph 3
+
+\vspace{20mm}
+
+\closing{SIGNATURE}
+
+
+%! ------------------------------------------------------------------------------
+
+\end{letter}
+
+\end{document}

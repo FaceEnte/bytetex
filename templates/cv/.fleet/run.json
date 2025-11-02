@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "command",
+      "name": "Build LaTeX PDF",
+      "program": "lualatex",
+      "args": [
+          "-interaction=nonstopmode",
+          "-output-directory=output",
+          "$FILE_NAME$"
+      ],
+      "workingDir": "$FILE_DIR$"
+    }
+  ]
+}

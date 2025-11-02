@@ -1,0 +1,65 @@
+%! Author = byteme
+
+%! ----------------------------------------------------------------------------------------
+%!	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%! ----------------------------------------------------------------------------------------
+
+\documentclass[11pt, a4paper]{awesome-cv}                               %! A4 paper size by default
+\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm}    %! Configure page margins with geometry
+\fontdir[fonts/]                                                        %! Specify the location of the included fonts
+
+%! Color for highlights
+\colorlet{awesome}{awesome-red}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}                  %! If you would like to change the social information
+                                                                        %! separator from a pipe (|) to something else
+
+%! ----------------------------------------------------------------------------------------
+%!	PERSONAL INFORMATION
+%!	Comment any of the lines below if they are not required
+%! ----------------------------------------------------------------------------------------
+\name{FIRSTNAME}{LASTNAME}
+\address{STREET NR, ZIP LOCATION}
+\mobile{PHONE NUMBER}
+\photo{picture.png}
+
+\email{EMAIL}
+\homepage{HOMEPAGE}
+\github{USERNAME}
+\linkedin{LINKEDIN}
+\skype{SKYPE}
+\stackoverflow{ID}{NAME}
+\twitter{@TWITTER}
+\reddit{REDDIT}
+\xing{XING}
+\extrainfo{EXTRA}                                                       %! Other text you want to include on this line
+
+\position{POSITION}                                                     %! Your expertise/fields
+\quote{"QUOTE"}                                                         %! A quote or statement
+
+\makecvfooter{\today}{NAME~~~·~~~CV}{\thepage}                          %! Specify the letter footer with 3 arguments:
+                                                                        %! (<left>, <center>, <right>), leave any of these blank if they are not needed
+
+%! ----------------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader                                                           %! Print the header
+
+%! ----------------------------------------------------------------------------------------
+%!	CV/RESUME CONTENT
+%!	Each section is imported separately, open each file in turn to modify content
+%! ----------------------------------------------------------------------------------------
+\input{cv-sections/education.tex}
+\input{cv-sections/skills.tex}
+\input{cv-sections/experience.tex}
+
+%! If a new page is needed, then make here a break to have clean look
+%! \newpage                                                             %! Force a new page for looks
+
+\input{cv-sections/extracurricular.tex}
+\input{cv-sections/honors.tex}
+\input{cv-sections/presentation.tex}
+\input{cv-sections/writing.tex}
+\input{cv-sections/committees.tex}
+
+%! ----------------------------------------------------------------------------------------
+\end{document}

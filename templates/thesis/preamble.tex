@@ -1,0 +1,134 @@
+%! Author = byteme
+
+%! ------------------------------------------------------------------------------
+%! Language and Encoding
+%! ------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}                           %! Input encoding (UTF-8)
+\usepackage[german]{babel}                            %! German language support
+\usepackage{glossaries}                               %! Adds glossary support
+\makeglossaries
+\usepackage[backend=biber,style=ieee]{biblatex}       %! Bibliography settings
+\addbibresource{resources/main.bib}                   %! Bibliography location
+
+%! ------------------------------------------------------------------------------
+%! Utility Packages
+%! ------------------------------------------------------------------------------
+\usepackage{xparse}                                   %! More powerful command definitions
+\usepackage{xcolor}                                    %! More colors
+
+%! ------------------------------------------------------------------------------
+%! Font and Typography
+%! ------------------------------------------------------------------------------
+\usepackage[scaled]{helvet}                           % Helvetica font
+\renewcommand{\familydefault}{\sfdefault}             % Use Helvetica everywhere
+\usepackage{sansmath}                                 % Make math sans-serif too
+\sansmath
+\setlength{\parindent}{0pt}                           %! Disable paragraph indentation
+\setlength{\parskip}{7pt}                             %! Set paragraph spacing
+\sloppy                                               %! Improve line breaking
+\raggedright                                          %! Left-align all text
+
+%! ------------------------------------------------------------------------------
+%! Page Layout and Geometry
+%! ------------------------------------------------------------------------------
+\usepackage{geometry}                                 %! Customize page margins
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+
+%! ------------------------------------------------------------------------------
+%! Multilingual Title Page Labels
+%! Place this code AFTER loading the babel package
+%! ------------------------------------------------------------------------------
+
+% 1. Default (fallback) labels
+\newcommand{\mytitleprogramlabel}{Study Program:}
+\newcommand{\mytitledatelabel}{Date:}
+\newcommand{\mytitleauthorlabel}{Author:}
+
+% 2. Translations for 'english'
+\addto\captionsenglish{%
+  \renewcommand{\mytitleprogramlabel}{Study Program:}
+  \renewcommand{\mytitledatelabel}{Date:}
+  \renewcommand{\mytitleauthorlabel}{Author:}
+}
+
+% 3. Translations for 'german'
+\addto\captionsgerman{%
+  \renewcommand{\mytitleprogramlabel}{Studiengang:}
+  \renewcommand{\mytitledatelabel}{Datum:}
+  \renewcommand{\mytitleauthorlabel}{Autor:}
+}
+
+%! ------------------------------------------------------------------------------
+%! Document Title and Author Info (Your original code, now modified)
+%! ------------------------------------------------------------------------------
+\usepackage{titling}                                  %! Control over title block
+
+%! Custom subtitle command
+\newcommand{\subtitle}[1]{%
+  {\Large #1}
+}
+
+%! Custom author info block
+\ExplSyntaxOn
+\NewDocumentCommand{\authorinfo}{m m m}{%
+  \vfill
+  \begin{flushleft}
+    \fontsize{11pt}{13pt}\selectfont
+    \begin{tabular}{@{} l @{\quad} l}
+      \textbf{\mytitleprogramlabel} \hspace{2pt} & #1 \\      %! Study Program
+      \textbf{\mytitledatelabel} \hspace{2pt} & #2 \\         %! Date
+      \clist_map_inline:nn {#3} {%
+        \textbf{\mytitleauthorlabel} \hspace{2pt} & ##1 \\    %! Authors
+      }
+    \end{tabular}
+  \end{flushleft}
+}
+\ExplSyntaxOff
+
+%! Custom titlepage command
+\newcommand{\customtitlepage}[5]{%
+  \begin{titlepage}
+    \centering
+    \vspace*{120pt}
+    \LARGE #1 \par                                    %! Title
+    \vspace{0.5cm}
+    \Large \subtitle{#2} \par                         %! Subtitle
+    \vfill
+    \authorinfo{#3}{#4}{#5}                           %! Study Program, Date and Authors
+  \end{titlepage}
+  \newpage
+}
+
+%! ------------------------------------------------------------------------------
+%! PDF Output and Hyperlinks
+%! ------------------------------------------------------------------------------
+\usepackage{hyperref}                                 %! Add clickable links and PDF metadata
+\hypersetup{
+  pdftitle={My Great Document},                       %! PDF title
+  pdfauthor={byteme},                                 %! Author
+  pdfsubject={LaTeX Template Example},                %! PDF Subject
+  pdfkeywords={LaTeX, Helvetica, Template, Report},   %! PDF keywords
+  pdfproducer={LaTeX with hyperref},                  %! PDF prodcuer
+  pdfcreator={pdflatex},                              %! PDF creator
+  pdfborder = {0 0 0},                                %! Remove borders around links
+  colorlinks=false                                    %! No colored links
+}
+
+%! ------------------------------------------------------------------------------
+%! Figures, Pages, Lists
+%! ------------------------------------------------------------------------------
+\usepackage{pdfpages}                                 %! Include external PDF pages
+\usepackage{enumitem}                                 %! Better control of list environments
+\setlist{topsep=0pt}
+\setlist[itemize]{itemsep=0pt}
+
+%! ------------------------------------------------------------------------------
+%! Mathematics and Informatics
+%! ------------------------------------------------------------------------------
+\usepackage{amsmath}                                  %! Advanced math typesetting
+\usepackage{amsfonts}                                 %! Math fonts
+\usepackage{amssymb}                                  %! Math symbols
+\usepackage{algorithm}
+\usepackage{algpseudocode}                            %! For writing pseudocode algorithms
+\usepackage{minted}                                   %! Code listings (great for programming code)
+\usemintedstyle{igor}

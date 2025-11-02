@@ -1,0 +1,60 @@
+%! Author = byteme
+
+%! ------------------------------------------------------------------------------
+%! Language and Encoding
+%! ------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}                           %! Input encoding (UTF-8)
+\usepackage[german]{babel}                            %! German language support
+\usepackage[none]{hyphenat}                           %! Disable automatic hyphenation
+\usepackage{xparse}
+
+%! ------------------------------------------------------------------------------
+%! scrlttr2 Settings
+%! ------------------------------------------------------------------------------
+\LoadLetterOption{SN}
+\KOMAoptions{
+    enlargefirstpage = true,
+    headsepline = false,
+    footsepline = true,
+    parskip = full,
+    firsthead = true,
+    fromrule = false,
+    fromphone = true,
+    fromfax = false,
+    fromemail = true,
+    fromurl = false,
+    fromlogo = true,
+    fromalign = left
+}
+
+\setplength{sigindent}{10mm}                          %! Indent the signature box 10mm
+\setplength{sigbeforevskip}{30mm}                     %! Vertical space before the signature
+
+%! ------------------------------------------------------------------------------
+%! Font and Typography
+%! ------------------------------------------------------------------------------
+\usepackage{helvet}                                   %! Use Helvetica font
+\renewcommand{\familydefault}{\sfdefault}             %! Set Helvetica as default
+\renewcommand*{\raggedsignature}{\raggedright}        %! Stop the signature from indenting
+\setlength{\parindent}{0pt}                           %! Disable paragraph indentation
+\setlength{\parskip}{7pt}                             %! Set paragraph spacing
+\sloppy                                               %! Improve line breaking
+\raggedright                                          %! Left-align all text
+
+%! ------------------------------------------------------------------------------
+%! Page Layout and Geometry
+%! ------------------------------------------------------------------------------
+\usepackage{geometry}                                 %! Customize page margins
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+\setkomafont{title}{\bfseries\normalsize\raggedright}
+\makeatletter
+    \@setplength{firstheadwidth}{\textwidth}
+    \@addtoplength{firstheadvpos}{.5cm} % Adjust header position
+\makeatother
+\renewcommand\raggedsignature{\raggedright}
+
+%! ------------------------------------------------------------------------------
+%! Utility Packages
+%! ------------------------------------------------------------------------------
+\usepackage{xparse}                                   %! More powerful command definitions
+\usepackage{color}					                  %! More colors
